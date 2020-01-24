@@ -86,20 +86,25 @@ def add_to_cart(melon_id):
     page and display a confirmation message: 'Melon successfully added to
     cart'."""
 
-    count = 0
+    # count = 0
 
     if "cart" in session:
 
-        cart = session["cart"]
-        if melon_id in cart:
-            cart[melon_id] = count + 1
-
-    #Vivi's ????? code
+        if melon_id in session["cart"]:
+            session["cart"][melon_id] = session["cart"][melon_id] + 1
+            print("in cart")
         else:
-            cart[melon_id] = 1
+            session["cart"][melon_id] = 1
+            print("set to 1")
     # print(cart)
+
     else:
         session["cart"] = {}
+
+       cart = session["cart"]
+
+       if cart:
+
 
     # TODO: Finish shopping cart functionality
 
